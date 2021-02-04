@@ -45,20 +45,20 @@ def execute_query(socket, query, acceptable_replies = ["0", "1"]):
         raise QueryReturnCodeError("'%s' failed with reply '%s'" % (query, reply), split[1])
     return split
 
-def get_machine(type_):
-    file_name = os.path.join(os.path.split(__file__)[0], "config.json")
+def get_machine(type_, configfile_="arrgh.json"):
+    file_name = os.path.join(os.path.split(__file__)[0], configfile_)
     with open(file_name, "r") as config_file:
         return [Hashable_Bunch(**x) for x in \
                 json.load(config_file)[type_]]
 
-def get_mark5s():
-    return get_machine("mark5")
+def get_mark5s(configfile_="arrgh.json"):
+    return get_machine("mark5", configfile_)
 
-def get_local_flexbuffs():
-    return get_machine("local_flexbuff")
+def get_local_flexbuffs(configfile_="arrgh.json"):
+    return get_machine("local_flexbuff", configfile_)
 
-def get_remote_flexbuffs():
-    return get_machine("remote_flexbuff")
+def get_remote_flexbuffs(configfile_="arrgh.json"):
+    return get_machine("remote_flexbuff", configfile_)
 
-def get_file_machines():
-    return get_machine("file")
+def get_file_machines(configfile_="arrgh.json"):
+    return get_machine("file", configfile_)

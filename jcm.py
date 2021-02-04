@@ -12,8 +12,8 @@ class Main_Window(QtGui.QSplitter):
     def __init__(self, parent=None):
         super(Main_Window, self).__init__(QtCore.Qt.Horizontal, parent)
         # two widgets to allow copying
-        self.left = machine_widget.Machine_Widget(self)
-        self.right = machine_widget.Machine_Widget(self)
+        self.left = machine_widget.Machine_Widget(self, title="Correlator", jsonfile="local.json")
+        self.right = machine_widget.Machine_Widget(self, title="Stations", jsonfile="remote.json")
         self.left.copy_from.connect(self.right.copy_to)
         self.right.copy_from.connect(self.left.copy_to)
         self.addWidget(self.left)
@@ -30,9 +30,10 @@ if __name__ == "__main__":
                "%(message)s",
         level=logging.DEBUG)
     app = QtGui.QApplication(sys.argv)
+    screen = QtGui.QDesktopWidget().screenGeometry()
     window = Main_Window()
     size = window.size()
-    size.setHeight(800)
+    size.setHeight(int(screen.height() * 0.7))
     window.resize(size)
     app.lastWindowClosed.connect(window.await_machine_threads)
     window.setWindowTitle("Jive5ab Copy Manager")

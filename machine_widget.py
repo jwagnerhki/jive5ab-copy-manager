@@ -22,19 +22,21 @@ class Machine_Widget(QtGui.QWidget):
                                        "destination to copy to selected")
 
     def _initialize_machine_types(self):
+        self.default_root_path = "/data/"
         self.machine_types = {} # {type : {display names: type dependent data}}
         """
         type_dependent_data:
         Mark5: Bunch (control_ip, port, data_ip)
         FlexBuff: [flexbuff Bunch(name, control_ip, port, user[, data_ip])] 
                   multiple flexbuffs can be combined
-        File: Bunch(user, control_ip, data_ip, port)
+        File: Bunch(user, control_ip, data_ip, port, default_path)
         """
         self.machine_types["Mark5"] = collections.OrderedDict([
             ("{name} ({ip})".format(name=du.machine, ip=du.control_ip), du) 
-            for du in import_proxy.get_mark5s()])
-        local_flexbuffs = import_proxy.get_local_flexbuffs()
-        remote_flexbuffs = import_proxy.get_remote_flexbuffs()
+            for du in import_proxy.get_mark5s(self._jsonfile)])
+        file_machines = import_proxy.get_file_machines(self._jsonfile)
+        local_flexbuffs = import_proxy.get_local_flexbuffs(self._jsonfile)
+        remote_flexbuffs = import_proxy.get_remote_flexbuffs(self._jsonfile)
         # a flexbuff can host multiple stations, group 
         grouped_remote_flexbuffs = collections.defaultdict(list)
         # also group all flexbuffs for a station
@@ -69,7 +71,7 @@ class Machine_Widget(QtGui.QWidget):
             )
         self.machine_types["File"] = collections.OrderedDict(
             ("{name} ({ip})".format(name=fm.machine, ip=fm.control_ip), fm)
-            for fm in import_proxy.get_file_machines())
+            for fm in file_machines)
 
     def _parse_host(self, host, machine_type):
         machine = host.strip()
@@ -126,6 +128,7 @@ class Machine_Widget(QtGui.QWidget):
         self.host.clear()
         self.host.addItems([""] + self.machine_types[machine].keys())
         if machine == "File":
+            self.file_selection.setText(self.default_root_path)
             self.file_widget.show()
         else:
             self.file_widget.hide()
@@ -194,37 +197,37 @@ class Machine_Widget(QtGui.QWidget):
             logging.debug("{e}\n{t}".format(e=e,t=traceback.format_exc()))
             return None
 
-    def _create_selection_widget(self):
+    def _create_selection_widget(self, title = "Selection"):
         self._initialize_machine_types()
-        widget = QtGui.QGroupBox("Selection", self)
+        widget = QtGui.QGroupBox(title, self)
         layout = QtGui.QHBoxLayout(widget)
         layout.addWidget(QtGui.QLabel("Type", self))
         self.machine_type = QtGui.QComboBox(self)
         items = self.machine_types.keys()
         self.machine_type.addItems(items)
         self.machine_type.setCurrentIndex(items.index("FlexBuff"))
+        widget.setFixedHeight(80)
         layout.addWidget(self.machine_type)
         layout.addStretch(1)
         reload_button = QtGui.QPushButton("Reload", self)
         layout.addWidget(reload_button)
 
+        self.host_widget = QtGui.QWidget(self)
+        host_layout = QtGui.QHBoxLayout(self.host_widget)
+        host_layout.addWidget(QtGui.QLabel("Host", self.host_widget))
+        self.host = QtGui.QComboBox(self.host_widget)
+        self.host.setEditable(True)
+        self.host.setInsertPolicy(QtGui.QComboBox.InsertAtBottom)
+        host_layout.addWidget(self.host)
+        layout.addWidget(self.host_widget)
+
         self.file_widget = QtGui.QWidget(self)
         file_layout = QtGui.QHBoxLayout(self.file_widget)
-        file_layout.addWidget(QtGui.QLabel("Root path", self.file_widget))
-        self.file_selection = QtGui.QLineEdit("/", self.file_widget)
+        file_layout.addWidget(QtGui.QLabel("Path", self.file_widget))
+        self.file_selection = QtGui.QLineEdit(self.default_root_path, self.file_widget)
         file_layout.addWidget(self.file_selection)
         # use a much higher stretch than the stretch before reload
         layout.addWidget(self.file_widget, 1000) 
-
-        host_widget = QtGui.QWidget(self)
-        host_layout = QtGui.QHBoxLayout(host_widget)
-        host_layout.addWidget(QtGui.QLabel("Host", host_widget))
-        self.host = QtGui.QComboBox(host_widget)
-        self.host.setEditable(True)
-        self.host.setInsertPolicy(QtGui.QComboBox.InsertAtBottom)
-
-        host_layout.addWidget(self.host)
-        layout.addWidget(host_widget)
         
         self.machine_type.activated[QtCore.QString].\
             connect(self._machine_type_selected)
@@ -233,13 +236,14 @@ class Machine_Widget(QtGui.QWidget):
         self._machine_type_selected(self.machine_type.currentText())
         return widget
 
-    def __init__(self, parent = None):
+    def __init__(self, parent = None, title = "Selection", jsonfile = "config.json"):
         super(Machine_Widget, self).__init__(parent)
 
+        self._jsonfile = jsonfile
         self._initialize_machine_types()
 
         self.master_layout = QtGui.QVBoxLayout(self)
-        selection_widget = self._create_selection_widget()
+        selection_widget = self._create_selection_widget(title)
         self.master_layout.addWidget(selection_widget)
 
         self.view = QtGui.QWidget(self)

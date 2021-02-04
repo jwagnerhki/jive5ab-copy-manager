@@ -1,0 +1,196 @@
+{
+    "local_flexbuff": [
+        {
+            "user": "evlbi",
+            "machine": "eportal1",
+            "port": 2620,
+            "control_ip": "10.10.6.1",
+            "data_ip": "195.37.231.36",
+            "machine_type": "flexbuff"
+        },
+        {
+            "user": "evlbi",
+            "machine": "eportal2",
+            "port": 2620,
+            "control_ip": "10.10.6.2",
+            "data_ip": "195.37.231.40",
+            "machine_type": "flexbuff"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-01",
+            "port": 2620,
+            "control_ip": "10.10.226.1",
+            "data_ip": "10.10.226.1",
+            "machine_type": "mark6",
+            "station": "mk6-01"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-02",
+            "port": 2620,
+            "control_ip": "10.10.226.2",
+            "data_ip": "10.10.226.2",
+            "machine_type": "mark6",
+            "station": "mk6-02"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-03",
+            "port": 2620,
+            "control_ip": "10.10.226.3",
+            "data_ip": "10.10.226.3",
+            "machine_type": "mark6",
+            "station": "mk6-03"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-04",
+            "port": 2620,
+            "control_ip": "10.10.226.4",
+            "data_ip": "10.10.226.4",
+            "machine_type": "mark6",
+            "station": "mk6-04"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-05",
+            "port": 2620,
+            "control_ip": "10.10.226.5",
+            "data_ip": "10.10.226.5",
+            "machine_type": "mark6",
+            "station": "mk6-05"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-06",
+            "port": 2620,
+            "control_ip": "10.10.226.6",
+            "data_ip": "10.10.226.6",
+            "machine_type": "mark6",
+            "station": "mk6-06"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-07",
+            "port": 2620,
+            "control_ip": "10.10.226.7",
+            "data_ip": "10.10.226.7",
+            "machine_type": "mark6",
+            "station": "mk6-07"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-08",
+            "port": 2620,
+            "control_ip": "10.10.226.8",
+            "data_ip": "10.10.226.8",
+            "machine_type": "mark6",
+            "station": "mk6-08"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-09",
+            "port": 2620,
+            "control_ip": "10.10.226.9",
+            "data_ip": "10.10.226.9",
+            "machine_type": "mark6",
+            "station": "mk6-09"
+        }
+    ],
+    "remote_flexbuff": [
+    ],
+    "mark5": [
+        {
+            "machine": "mark5fx01",
+            "control_ip": "10.10.225.1",
+            "data_ip": "10.10.225.1",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx02",
+            "control_ip": "10.10.225.2",
+            "data_ip": "10.10.225.2",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx03",
+            "control_ip": "10.10.225.3",
+            "data_ip": "10.10.225.3",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx04",
+            "control_ip": "10.10.225.4",
+            "data_ip": "10.10.225.4",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx05",
+            "control_ip": "10.10.225.5",
+            "data_ip": "10.10.225.5",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx06",
+            "control_ip": "10.10.225.6",
+            "data_ip": "10.10.225.6",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx07",
+            "control_ip": "10.10.225.7",
+            "data_ip": "10.10.225.7",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx08",
+            "control_ip": "10.10.225.8",
+            "data_ip": "10.10.225.8",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx09",
+            "control_ip": "10.10.225.9",
+            "data_ip": "10.10.225.9",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx10",
+            "control_ip": "10.10.225.10",
+            "data_ip": "10.10.225.10",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx11",
+            "control_ip": "10.10.225.11",
+            "data_ip": "10.10.225.11",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx12",
+            "control_ip": "10.10.225.12",
+            "data_ip": "10.10.225.12",
+            "port": 2620
+        }
+    ],
+    "file": [
+        {
+            "user": "evlbi",
+            "machine": "eportal1",
+            "port": 2620,
+            "control_ip": "10.10.6.1",
+            "data_ip": "195.37.231.36",
+            "default_path": "/data/"
+        },
+        {
+            "user": "evlbi",
+            "machine": "eportal2",
+            "port": 2620,
+            "control_ip": "10.10.6.2",
+            "data_ip": "195.37.231.40",
+            "default_path": "/data/"
+        }
+    ]
+}
+                       
