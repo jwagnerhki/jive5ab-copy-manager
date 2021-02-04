@@ -438,11 +438,13 @@ class Flexbuff_View(Abstract_Machine_View):
             raise RuntimeError("Empty set of FlexBuffs.")
         self.flexbuffs = {flexbuff.machine : flexbuff for flexbuff in flexbuffs}
         self.local = local
+        self.any_is_mark6 = any([flexbuff.machine_type == 'mark6' for flexbuff in flexbuffs])
 
         super(Flexbuff_View, self).__init__(parent)
 
         self.mark6_format = QtGui.QCheckBox("Mark6 format", self)
         self.selection_layout.addWidget(self.mark6_format)
+        self.mark6_format.setCheckState(self.any_is_mark6)
         self.mark6_format.clicked.connect(self._set_data_format)
         self.mark6_format.setEnabled(False)
 
