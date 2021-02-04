@@ -46,6 +46,15 @@
             "data_ip": "141.74.6.97",
             "machine_type": "flexbuff",
             "station": "Wz"
+        },
+        {
+            "user": "oper",
+            "machine": "141.74.6.81",
+            "port": 2620,
+            "control_ip": "141.74.6.81",
+            "data_ip": "141.74.6.81",
+            "machine_type": "mark6",
+            "station": "Wz_Mk6"
         }
     ],
     "mark5": [
