@@ -145,7 +145,7 @@ def check_flexbuff(flexbuff, usage, available, errors, recording_name=None,
         check_flexbuff_usage(flexbuff, usage, errors, recording_name, 
                              is_mark6_data_format)
         if not recording_name:
-            check_flexbuff_availability(flexbuff, available)
+            check_flexbuff_availability(flexbuff, available, is_mark6_data_format)
 
     except Exception as e:
         print "{f}: {e}".format(f=flexbuff.machine, e=e)
@@ -219,14 +219,18 @@ def check_flexbuff_usage(flexbuff, usage, errors, recording_name,
             raise RuntimeError(
                 "Unexpected line on du output: '{line}'".format(line=line))
 
-def check_flexbuff_availability(flexbuff, available):
+def check_flexbuff_availability(flexbuff, available, is_mark6):
     # disk space available
-    output = subprocess.check_output(
-        shlex.split("ssh -o PasswordAuthentication=no {flexbuff} "
-                    "\"bash -c 'df -B 1 --total /mnt/disk*'\"".format(
-                        flexbuff=flexbuff.machine \
-                        if flexbuff.user is None else \
-                        "@".join([flexbuff.user, flexbuff.machine]))))
+    login = flexbuff.machine if flexbuff.user is None else "@".join([flexbuff.user, flexbuff.machine])
+    if not is_mark6:
+        output = subprocess.check_output(
+            shlex.split("ssh -o PasswordAuthentication=no {flexbuff} "
+                        "\"bash -c 'df -B 1 --total /mnt/disk*'\"".format(flexbuff=login)))
+    else:
+        output = subprocess.check_output(
+            shlex.split("ssh -o PasswordAuthentication=no {flexbuff} "
+                        "\"bash -c 'df -B 1 --total /mnt/disks/?/?/'\"".format(flexbuff=login)))
+
     regex = re.compile("^total\s+(?P<total>\d+)\s+(?P<used>\d+)\s+"
                        "(?P<available>\d+)\s+\d+%")
     for line in output.split('\n'):
