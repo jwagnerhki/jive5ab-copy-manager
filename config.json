@@ -1,62 +1,125 @@
 {
     "local_flexbuff": [
         {
-            "user": null,
-            "machine": "aribox",
+            "user": "evlbi",
+            "machine": "eportal1",
             "port": 2620,
-            "control_ip": "10.88.0.24",
-            "data_ip": "192.42.120.101",
+            "control_ip": "10.10.6.1",
+            "data_ip": "195.37.231.36",
             "machine_type": "flexbuff"
         },
         {
-            "user": "jops",
-            "machine": "flexbuf0",
+            "user": "evlbi",
+            "machine": "eportal2",
             "port": 2620,
-            "control_ip": "10.88.0.25",
-            "data_ip": "192.42.120.68",
+            "control_ip": "10.10.6.2",
+            "data_ip": "195.37.231.40",
             "machine_type": "flexbuff"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-01",
+            "port": 2620,
+            "control_ip": "10.10.226.1",
+            "data_ip": "10.10.226.1",
+            "machine_type": "mark6",
+            "station": "mk6-01"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-02",
+            "port": 2620,
+            "control_ip": "10.10.226.2",
+            "data_ip": "10.10.226.2",
+            "machine_type": "mark6",
+            "station": "mk6-02"
+        },
+        {
+            "user": "oper",
+            "machine": "mark6-03",
+            "port": 2620,
+            "control_ip": "10.10.226.3",
+            "data_ip": "10.10.226.3",
+            "machine_type": "mark6",
+            "station": "mk6-03"
         }
     ],
     "remote_flexbuff": [
         {
             "user": "oper",
-            "machine": "bogar.oso.chalmers.se",
+            "machine": "vlbi-control1.iram.es",
+            "port": 2620,
+            "control_ip": "150.214.247.2",
+            "data_ip": "150.214.247.2",
+            "machine_type": "mark6",
+            "station": "Pv"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.iram.es",
             "port": 2621,
-            "control_ip": "129.16.208.145",
-            "data_ip": "129.16.208.145",
-            "machine_type": "flexbuff",
-            "station": "On"
+            "control_ip": "150.214.247.2",
+            "data_ip": "150.214.247.2",
+            "machine_type": "mark6",
+            "station": "PvRec1"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.iram.fr",
+            "port": 2620,
+            "control_ip": "195.83.131.10",
+            "data_ip": "195.83.131.10",
+            "machine_type": "mark6",
+            "station": "Nn"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.12m.as.arizona.edu",
+            "port": 2620,
+            "control_ip": "140.252.87.4",
+            "data_ip": "140.252.87.4",
+            "machine_type": "mark6",
+            "station": "Kp"
         }
     ],
     "mark5": [
         {
-            "machine": "0",
-            "control_ip": "10.88.0.50",
-            "data_ip": "192.42.120.2",
+            "machine": "mark5fx01",
+            "control_ip": "10.10.225.1",
+            "data_ip": "10.10.225.1",
+            "port": 2620
+        },
+        {
+            "machine": "mark5fx02",
+            "control_ip": "10.10.225.2",
+            "data_ip": "10.10.225.2",
             "port": 2620
         }
     ],
     "file": [
         {
-            "user": null,
-            "machine": "aribox",
+            "user": "evlbi",
+            "machine": "eportal1",
             "port": 2620,
-            "control_ip": "10.88.0.24",
-            "data_ip": "192.42.120.101"
+            "control_ip": "10.10.6.1",
+            "data_ip": "195.37.231.36",
+            "default_path": "/data/"
         },
         {
-            "user": "jops",
-            "machine": "flexbuf0",
+            "user": "evlbi",
+            "machine": "eportal2",
             "port": 2620,
-            "control_ip": "10.88.0.25",
-            "data_ip": "192.42.120.68"
+            "control_ip": "10.10.6.2",
+            "data_ip": "195.37.231.40",
+            "default_path": "/data/"
         },
         {
-            "user": "jops",
-            "machine": "0",
-            "control_ip": "10.88.0.50",
-            "data_ip": "192.42.120.2",
-            "port": 2620
+            "user": "oper",
+            "machine": "vlbi-control1.iram.es",
+            "port": 2620,
+            "control_ip": "150.214.247.2",
+            "data_ip": "150.214.247.2",
+            "default_path": "/home/oper/transfer/"
         }
     ]
 }
