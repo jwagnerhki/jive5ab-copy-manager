@@ -31,6 +31,15 @@
         },
         {
             "user": "oper",
+            "machine": "vlbi-control1.eao.hawaii.edu",
+            "port": 2620,
+            "control_ip": "128.171.92.213",
+            "data_ip": "128.171.92.213",
+            "machine_type": "flexbuff",
+            "station": "Jcmt"
+        },
+        {
+            "user": "oper",
             "machine": "vlbi-control1.12m.as.arizona.edu",
             "port": 2620,
             "control_ip": "140.252.87.4",
@@ -66,7 +75,16 @@
             "port": 2620,
             "control_ip": "150.214.247.2",
             "data_ip": "150.214.247.2",
-            "default_path": "/home/oper/transfer/"
+            "default_path": "/home/oper/transfer/sshfs/"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.eao.hawaii.edu",
+            "port": 2620,
+            "control_ip": "128.171.92.213",
+            "data_ip": "128.171.92.213",
+            "default_path": "/home/oper/transfer/sshfs/",
+            "station": "Jcmt"
         }
     ]
 }
