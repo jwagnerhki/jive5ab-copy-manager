@@ -184,11 +184,14 @@ class Machine_Widget(QtGui.QWidget):
             elif machine == "FlexBuff":
                 return flexbuff_view.Flexbuff_View(args, self)
             elif machine == "File":
-                path = str(self.file_selection.text())
+                path = args.default_path
+                if len(path) == 0:
+                    path = str(self.file_selection.text())
                 if len(path) == 0:
                     QtGui.QMessageBox.critical(self, "No path selected", 
                         "No root path selected for file view on host {host}".\
                         format(host=host))
+                self.file_selection.setText(path)
                 instance_args = Bunch(args)
                 instance_args.root_path = path
                 return file_view.File_View(instance_args, self)
