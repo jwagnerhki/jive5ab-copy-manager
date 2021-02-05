@@ -5,20 +5,11 @@
         {
             "user": "oper",
             "machine": "vlbi-control1.iram.es",
-            "port": 2620,
-            "control_ip": "150.214.247.2",
-            "data_ip": "150.214.247.2",
-            "machine_type": "mark6",
-            "station": "Pv"
-        },
-        {
-            "user": "oper",
-            "machine": "vlbi-control1.iram.es",
             "port": 2621,
             "control_ip": "150.214.247.2",
             "data_ip": "150.214.247.2",
             "machine_type": "mark6",
-            "station": "PvRec1"
+            "station": "Pv_Mk6_1"
         },
         {
             "user": "oper",
@@ -49,7 +40,7 @@
         },
         {
             "user": "oper",
-            "machine": "141.74.6.97",
+            "machine": "flexbuff2.evlbi.wettzell.de",
             "port": 2620,
             "control_ip": "141.74.6.97",
             "data_ip": "141.74.6.97",
@@ -71,20 +62,48 @@
     "file": [
         {
             "user": "oper",
-            "machine": "vlbi-control1.iram.es",
-            "port": 2620,
-            "control_ip": "150.214.247.2",
-            "data_ip": "150.214.247.2",
-            "default_path": "/home/oper/transfer/sshfs/"
-        },
-        {
-            "user": "oper",
             "machine": "vlbi-control1.eao.hawaii.edu",
             "port": 2620,
             "control_ip": "128.171.92.213",
             "data_ip": "128.171.92.213",
             "default_path": "/home/oper/transfer/sshfs/",
             "station": "Jcmt"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.12m.as.arizona.edu",
+            "port": 2620,
+            "control_ip": "140.252.87.4",
+            "data_ip": "140.252.87.4",
+            "default_path": "/home/oper/transfer/sshfs/",
+            "station": "KittPeak"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.iram.es",
+            "port": 2620,
+            "control_ip": "150.214.247.2",
+            "data_ip": "150.214.247.2",
+            "default_path": "/home/oper/transfer/sshfs/",
+            "station": "Pico"
+        },
+        {
+            "user": "oper",
+            "machine": "vlbi-control1.iram.fr",
+            "port": 2620,
+            "control_ip": "195.83.131.10",
+            "data_ip": "195.83.131.10",
+            "default_path": "/home/oper/transfer/sshfs/",
+            "station": "Noema"
+        },
+        {
+            "user": "oper",
+            "machine": "flexbuff2.evlbi.wettzell.de",
+            "port": 2620,
+            "control_ip": "141.74.6.97",
+            "data_ip": "141.74.6.97",
+            "default_path": "/raid/",
+            "station": "Wz RAID"
         }
     ]
 }
