@@ -4,6 +4,42 @@
     "remote_flexbuff": [
         {
             "user": "oper",
+            "machine": "flexbuff2.evlbi.wettzell.de",
+            "port": 2620,
+            "control_ip": "141.74.6.97",
+            "data_ip": "141.74.6.97",
+            "machine_type": "flexbuff",
+            "station": "Wz"
+        },
+        {
+            "user": "bonn",
+            "machine": "onsala-kare",
+            "port": 2620,
+            "control_ip": "130.242.10.3",
+            "data_ip": "130.242.10.3",
+            "machine_type": "flexbuff",
+            "station": "Onsala"
+        },
+        {
+            "user": "bonn",
+            "machine": "onsala-skirner",
+            "port": 2620,
+            "control_ip": "130.242.10.2",
+            "data_ip": "130.242.10.2",
+            "machine_type": "flexbuff",
+            "station": "Onsala2"
+        },
+        {
+            "user": "oper",
+            "machine": "141.74.6.81",
+            "port": 2620,
+            "control_ip": "141.74.6.81",
+            "data_ip": "141.74.6.81",
+            "machine_type": "mark6",
+            "station": "Wz_Mk6"
+        },
+        {
+            "user": "oper",
             "machine": "vlbi-control1.iram.es",
             "port": 2621,
             "control_ip": "150.214.247.2",
@@ -37,24 +73,6 @@
             "data_ip": "140.252.87.4",
             "machine_type": "mark6",
             "station": "Kp"
-        },
-        {
-            "user": "oper",
-            "machine": "flexbuff2.evlbi.wettzell.de",
-            "port": 2620,
-            "control_ip": "141.74.6.97",
-            "data_ip": "141.74.6.97",
-            "machine_type": "flexbuff",
-            "station": "Wz"
-        },
-        {
-            "user": "oper",
-            "machine": "141.74.6.81",
-            "port": 2620,
-            "control_ip": "141.74.6.81",
-            "data_ip": "141.74.6.81",
-            "machine_type": "mark6",
-            "station": "Wz_Mk6"
         }
     ],
     "mark5": [
