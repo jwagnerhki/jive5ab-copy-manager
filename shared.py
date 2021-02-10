@@ -166,6 +166,7 @@ def check_flexbuff_usage(flexbuff, usage, errors, recording_name,
             find_type = "d"
         recording_path = ""
 
+    login = flexbuff.machine if flexbuff.user is None else "@".join([flexbuff.user, flexbuff.machine])
     process = subprocess.Popen(
         args=shlex.split(
             "ssh -o PasswordAuthentication=no {flexbuff} "
@@ -223,14 +224,13 @@ def check_flexbuff_availability(flexbuff, available, is_mark6):
     # disk space available
     login = flexbuff.machine if flexbuff.user is None else "@".join([flexbuff.user, flexbuff.machine])
     if not is_mark6:
-        output = subprocess.check_output(
-            shlex.split("ssh -o PasswordAuthentication=no {flexbuff} "
-                        "\"bash -c 'df -B 1 --total /mnt/disk*'\"".format(flexbuff=login)))
+        cmd = "ssh -o PasswordAuthentication=no {flexbuff} " \
+                    "\"bash -c 'df -B 1 --total {pattern}'\"".format(flexbuff=login,pattern=disk_pattern['flexbuff'])
     else:
-        output = subprocess.check_output(
-            shlex.split("ssh -o PasswordAuthentication=no {flexbuff} "
-                        "\"bash -c 'df -B 1 --total /mnt/disks/?/?/'\"".format(flexbuff=login)))
+        cmd = "ssh -o PasswordAuthentication=no {flexbuff} " \
+                    "\"bash -c 'df -B 1 --total /mnt/disks/?/?/'\"".format(flexbuff=login)
 
+    output = subprocess.check_output(shlex.split(cmd))
     regex = re.compile("^total\s+(?P<total>\d+)\s+(?P<used>\d+)\s+"
                        "(?P<available>\d+)\s+\d+%")
     for line in output.split('\n'):
