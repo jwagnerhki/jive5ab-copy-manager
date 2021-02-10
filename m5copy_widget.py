@@ -96,7 +96,7 @@ class M5copy_Dialog(Command_Dialog):
         self.rate_widget = QtGui.QLineEdit(self.udt_widget)
         udt_layout.addWidget(self.rate_widget, 0, 1)
         self.mtu_widget = QtGui.QLineEdit(self.udt_widget)
-        self.mtu_widget.setText("9000")
+        self.mtu_widget.setText("1500")
         udt_layout.addWidget(self.mtu_widget, 1, 1)
         network_layout.addWidget(self.udt_widget)
 
