@@ -122,6 +122,24 @@
             "data_ip": "141.74.6.97",
             "default_path": "/raid/",
             "station": "Wz RAID"
+        },
+        {
+            "user": "bonn",
+            "machine": "onsala-kare",
+            "port": 2620,
+            "control_ip": "130.242.10.3",
+            "data_ip": "130.242.10.3",
+            "default_path": "/mnt/",
+            "station": "Onsala"
+        },
+        {
+            "user": "bonn",
+            "machine": "onsala-skirner",
+            "port": 2620,
+            "control_ip": "130.242.10.2",
+            "data_ip": "130.242.10.2",
+            "default_path": "/mnt/",
+            "station": "Onsala2"
         }
     ]
 }
