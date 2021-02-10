@@ -101,7 +101,7 @@ class M5copy_Dialog(Command_Dialog):
         network_layout.addWidget(self.udt_widget)
 
         self.protocol_buttons.buttonClicked.connect(self._protocol_changed)
-        tcp_button.setChecked(True)
+        udt_button.setChecked(True)
         self.udt_widget.setEnabled(False)
 
         master_layout.addLayout(network_layout)
