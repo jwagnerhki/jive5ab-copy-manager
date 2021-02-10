@@ -34,6 +34,7 @@ if __name__ == "__main__":
     window = Main_Window()
     size = window.size()
     size.setHeight(int(screen.height() * 0.7))
+    size.setWidth(int(screen.width()*0.9))
     window.resize(size)
     app.lastWindowClosed.connect(window.await_machine_threads)
     window.setWindowTitle("Jive5ab Copy Manager")
